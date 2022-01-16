@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import styled from "./App.module.css";
 
 function App() {
   const [toDo, setToDo] = useState("");
@@ -15,18 +15,18 @@ function App() {
   };
   return (
     <div>
-      <h1>My To Dos ({toDos.length})</h1>
+      <h1 className={styled.title}>TODO LIST</h1>
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
           value={toDo}
           type="text"
           placeholder="Write your to do..." />
-        <button>Add To Do</button>
+        <button className={styled.btn}>ADD</button>
       </form>
       <hr />
       {toDos.map((item, index) => (
-        <li key={index}>{item}</li>
+        <li key={index}>- {item}</li>
       ))}
     </div>
   );
